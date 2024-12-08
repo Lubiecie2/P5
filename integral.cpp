@@ -4,12 +4,12 @@
 #include <vector>
 #include <cmath>
 
-Integral::Integral(int intervals, int threads)
+Integral::Integral(int intervals, int threads)  // <--- Konstruktor klasy
 {
-	liczba_przedzialow = intervals;
-	liczba_watkow = threads;
-	wynik_pi = 0;
-	czas_obliczen = 0;
+	liczba_przedzialow = intervals;  // <--- Liczba przydzia³ów
+	liczba_watkow = threads;         // <--- Liczba w¹tków
+	wynik_pi = 0;  		             // <--- Wynik obliczeñ liczby pi
+	czas_obliczen = 0;               // <--- Czas trwania obliczeñ 
 }
 
 double Integral::calculatre_partial(int start, int end)
