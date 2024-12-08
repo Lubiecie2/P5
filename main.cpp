@@ -3,7 +3,7 @@
 
 int main()
 {
-    int przedzialy, watki;
+	int przedzialy, watki;
 
 	std::cout << "Podaj liczbe przedzialow: ";
 	std::cin >> przedzialy;
@@ -16,5 +16,3 @@ int main()
 	std::cout << "Przyblizona wartosc liczby pi: " << calka.pobierz_wynik_pi() << std::endl;
 	std::cout << "Czas obliczen: " << calka.pobierz_czas_obliczen() << " sekund" << std::endl;
 }
-
-
