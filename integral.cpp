@@ -6,7 +6,7 @@
 
 Integral::Integral(int intervals, int threads)  // <--- Konstruktor klasy	
 {
-	liczba_przedzialow = intervals;  // <--- Liczba przydzia³u ca³kowania
+	liczba_przedzialow = intervals;  // <--- Liczba przydziaÅ‚u caÅ‚kowania
 	liczba_watkow = threads;         // <--- Liczba watkow do wykorzystania
 	wynik_pi = 0;  		             // <--- Wynik obliczen liczby pi
 	czas_obliczen = 0;               // <--- Czas trwania obliczen 
@@ -18,7 +18,7 @@ double Integral::calculatre_partial(int start, int end)  // <--- Funkcja oblicza
 	double sum = 0;                        // <--- Inicjalizacja sumy
 	for (int i = start; i < end; i++)      // <--- Petla do iteracji po przydzielonym przedziale
 	{
-		double x = (i + 0.5) * dx;         // <--- Obliczanie srodka przedzia³u
+		double x = (i + 0.5) * dx;         // <--- Obliczanie srodka przedziaÅ‚u
 		sum += 4.0 / (1.0 + x * x);        // <--- Obliczanie wartosci funkcji 4/(1+x^2) w punkcie x
 	}
 	return sum;                            // <--- Zwrocenie wartosci funkcji
