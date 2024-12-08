@@ -6,18 +6,18 @@
 class Integral {
 
 private:
-	int num_intervals;  // <--- Liczba przydzia³ów
-	int num_threads;   // <--- Liczba w¹tków
-	double pi_result; // <--- Wynik obliczeñ liczby pi
-	double duration; // <--- Czas trwania obliczeñ
+	int liczba_przedzialow;  // <--- Liczba przydzia³ów
+	int liczba_watkow;       // <--- Liczba w¹tków
+	double wynik_pi;         // <--- Wynik obliczeñ liczby pi
+	double czas_obliczen;    // <--- Czas trwania obliczeñ
 
 	double calculatre_partial(int start, int end); // <--- Funkcja obliczaj¹ca czêœæ wyniku
 
 public:
 	Integral(int intervals, int threads); // <--- Konstruktor klasy 
 
-	void calculate(); // <--- Funkcja obliczaj¹ca wynik
+	void oblicz(); // <--- Funkcja obliczaj¹ca wynik
 
-	double get_pi(); // <--- Funkcja zwracaj¹ca wynik
-	double get_duration(); // <--- Funkcja zwracaj¹ca czas trwania obliczeñ
+	double pobierz_wynik_pi(); // <--- Funkcja zwracaj¹ca wynik
+	double pobierz_czas_obliczen(); // <--- Funkcja zwracaj¹ca czas trwania obliczeñ
 };
