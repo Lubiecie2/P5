@@ -4,7 +4,7 @@
 #include <vector>
 #include <cmath>
 
-Integral::Integral(int intervals, int threads)  // <--- Konstruktor klasy
+Integral::Integral(int intervals, int threads)  // <--- Konstruktor klasy	
 {
 	liczba_przedzialow = intervals;  // <--- Liczba przydzia³ów
 	liczba_watkow = threads;         // <--- Liczba w¹tków
@@ -12,16 +12,16 @@ Integral::Integral(int intervals, int threads)  // <--- Konstruktor klasy
 	czas_obliczen = 0;               // <--- Czas trwania obliczeñ 
 }
 
-double Integral::calculatre_partial(int start, int end)
+double Integral::calculatre_partial(int start, int end)  // <--- Funkcja obliczaj¹ca wartoœæ liczby pi
 {
-	double dx = 1.0 / liczba_przedzialow;
-	double sum = 0;
-	for (int i = start; i < end; i++)
+	double dx = 1.0 / liczba_przedzialow;  // <--- D³ugoœæ przedzia³u
+	double sum = 0;                        // <--- Suma wartoœci funkcji
+	for (int i = start; i < end; i++)      // <--- Pêtla obliczaj¹ca wartoœæ funkcji
 	{
-		double x = (i + 0.5) * dx;
-		sum += 4.0 / (1.0 + x * x);
+		double x = (i + 0.5) * dx;         // <--- Wartoœæ x
+		sum += 4.0 / (1.0 + x * x);        // <--- Wartoœæ funkcji
 	}
-	return sum;
+	return sum;                            // <--- Zwrócenie wartoœci funkcji
 }
 
 void Integral::oblicz()
