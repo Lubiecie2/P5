@@ -28,7 +28,7 @@ void Integral::oblicz()  // <--- Funkcja wykonujaca glowne obliczenia rownloegle
 {
 	auto start = std::chrono::high_resolution_clock::now();  // <--- Pomiar czasu rozpoczecia obliczen
 	std::vector<std::thread> threads;   // <--- Wektor do przechowywania obiektow typu thread, kazdy
-										//      obiekt odpowiada za jeden watek						
+	//      obiekt odpowiada za jeden watek						
 	std::vector<double> results(liczba_watkow);  // <--- Wektor do przechowywania wynikow czesciowych dla kazdego watku
 
 	for (int i = 0; i < liczba_watkow; i++)                  // <--- Petla do tworzenia watkow, kazdy watek
