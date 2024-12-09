@@ -3,7 +3,7 @@
 
 int main()
 {
-	int przedzialy, watki;
+	long long int przedzialy, watki;
 
 	std::cout << "Podaj liczbe przedzialow: ";
 	std::cin >> przedzialy;

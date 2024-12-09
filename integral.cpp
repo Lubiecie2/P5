@@ -1,10 +1,10 @@
-#include "integral.h"  
-#include <iostream>  
-#include <thread> // <--- Biblioteka do obslugi watkow
-#include <vector> // <--- Biblioteka do obslugi wektorow
-#include <cmath>  // <--- Biblioteka do obliczen matematycznych
+#include "integral.h"
+#include <iostream>
+#include <thread>  // <--- Biblioteka do obslugi watkow
+#include <vector>  // <--- Biblioteka do obslugi wektorow
+#include <cmath>   // <--- Biblioteka do obliczen matematycznych
 
-Integral::Integral(int intervals, int threads)  // <--- Konstruktor klasy	
+Integral::Integral(long long int intervals, int threads)  // <--- Konstruktor klasy	
 {
 	liczba_przedzialow = intervals;  // <--- Liczba przydziału całkowania
 	liczba_watkow = threads;         // <--- Liczba watkow do wykorzystania
@@ -12,11 +12,11 @@ Integral::Integral(int intervals, int threads)  // <--- Konstruktor klasy
 	czas_obliczen = 0;               // <--- Czas trwania obliczen 
 }
 
-double Integral::calculatre_partial(int start, int end)  // <--- Funkcja obliczajaca czesc calki dla zakresu przedzialu przez parametry
-{                                                        //      start i end
+double Integral::calculate_partial(long long int start, long long int end)  // <--- Funkcja obliczajaca czesc calki dla zakresu przedzialu przez parametry
+{
 	double dx = 1.0 / liczba_przedzialow;  // <--- Dlugosc jednego podprzedzialu
 	double sum = 0;                        // <--- Inicjalizacja sumy
-	for (int i = start; i < end; i++)      // <--- Petla do iteracji po przydzielonym przedziale
+	for (long long int i = start; i < end; i++)      // <--- Petla do iteracji po przydzielonym przedziale
 	{
 		double x = (i + 0.5) * dx;         // <--- Obliczanie srodka przedziału
 		sum += 4.0 / (1.0 + x * x);        // <--- Obliczanie wartosci funkcji 4/(1+x^2) w punkcie x
@@ -33,12 +33,12 @@ void Integral::oblicz()  // <--- Funkcja wykonujaca glowne obliczenia rownloegle
 
 	for (int i = 0; i < liczba_watkow; i++)                  // <--- Petla do tworzenia watkow, kazdy watek
 	{                                                        //      oblicza czesc calki czesci calki w zakresie
-		int start = i * liczba_przedzialow / liczba_watkow;
-		int end = (i + 1) * liczba_przedzialow / liczba_watkow;
+		long long int start = i * liczba_przedzialow / liczba_watkow;
+		long long int end = (i + 1) * liczba_przedzialow / liczba_watkow;
 
-		threads.push_back(std::thread([this, start, end, i, &results]()  // <--- Tworzenie jest nowy watek 
+		threads.push_back(std::thread([this, start, end, i, &results]()  // <--- Tworzenie nowego watku 
 			{                                                            // this przekazuje obiekt klasy Integral do watku
-				results[i] = calculatre_partial(start, end);    // <--- kazdy watek wywoluje funkcje calculatre_partial
+				results[i] = calculate_partial(start, end);    // <--- kazdy watek wywoluje funkcje calculatre_partial
 			}));                                                //      i zapisuje wynik w wektorze results
 	}
 	for (auto& t : threads)  // <--- Petla przechodzi przez wszystkie watki i czeka na zakonczenie ich dzialania
