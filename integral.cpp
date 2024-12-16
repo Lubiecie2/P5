@@ -55,7 +55,7 @@ void Integral::oblicz()  // <--- Funkcja wykonujaca glowne obliczenia rownloegle
 
 	auto end = std::chrono::high_resolution_clock::now();  // <--- Pomiar czasu zakonczenia obliczen
 	czas_obliczen = std::chrono::duration<double>(end - start).count(); // <--- Roznica czasu pomiedzy startem i koncem 
-}                                                                       //      to czas trwania obliczen
+}                                                                       //      to czas trwania obliczen.
 
 double Integral::pobierz_wynik_pi()  // <--- Funkcja zwracajaca wynik obliczen liczby pi
 {
