@@ -66,5 +66,3 @@ double Integral::pobierz_czas_obliczen()   // <--- Funkcja zwracajaca czas trwan
 {
 	return czas_obliczen;
 }
-
-// Wesołych Świąt i szczęśliwego nowego roku! :) 
